@@ -497,6 +497,7 @@ class OdooAPI(http.Controller):
         methods=['GET'], website=True, csrf=False)
     def get_binary_record(self, model,  rec_id, field, **post):
         rec = request.env[model].browse(rec_id).ensure_one()
+        print(rec)
         if rec.exists():
             src = getattr(rec, field).decode("utf-8")
         else:
